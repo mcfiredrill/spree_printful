@@ -1,0 +1,17 @@
+<div data-hook="admin_printful_settings_form_fields">
+  <div class="row">
+    <div class="col-md-6">
+      <fieldset>
+        <legend><%= Spree.t(:general) %></legend>
+        <div class="form-group">
+          <% @preferences_GeneralSettings.each do |key| %>
+            <div class="field">
+              <%= label_tag key %>
+              <%= preference_field_tag(key, Spree::Config[key], type: :string) %>
+            </div>
+          <% end %>
+        </div>
+      </fieldset>
+    </div>
+  </div>
+</div>
