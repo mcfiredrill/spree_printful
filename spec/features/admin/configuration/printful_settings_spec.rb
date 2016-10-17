@@ -10,7 +10,7 @@ RSpec.feature 'Printful Settings' do
       click_link 'Printful Settings'
     end
 
-    scenario 'can edit printful settings' do
+    scenario 'when editing printful settings' do
       fill_in 'printful_api_key', with: 'PrintfulApiKey'
       click_button 'Update'
       expect(page).to have_content('successfully updated!')
