@@ -17,7 +17,7 @@ Deface::Override.new(:virtual_path => "spree/admin/variants/_form",
    <% end %>
 
    <%= f.fields_for :printful_printfile do |pf| %>
-     <%= pf.label :attachment, Spree.t(:attachment) %>
+     <%= pf.label :attachment, Spree.t(:printful_printfile_attachment) %>
      <%= pf.file_field :attachment, { class: 'form-control' } %>
    <% end %>
  </div>

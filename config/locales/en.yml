@@ -4,3 +4,5 @@
 en:
   spree:
     printful_settings: "Printful Settings"
+    printful_variant_id: "Printful Variant ID"
+    printful_printfile_attachment: "Printful Printfile Attachment"
