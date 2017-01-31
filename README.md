@@ -1,17 +1,10 @@
-SpreePrintful
-=============
-
-Introduction goes here.
-
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
+  
   ```ruby
-  gem 'spree_printful', github: '[your-github-handle]/spree_printful', branch: 'X-X-stable'
+  gem 'spree_printful', github: 'lemuelbarango/spree_printful'
   ```
-
-  The `branch` option is important: it must match the version of Spree you're using.
-  For example, use `3-1-stable` if you're using Spree `3-1-stable` or any `3.1.x` version.
 
 2. Install the gem using Bundler:
   ```ruby
@@ -43,11 +36,26 @@ Simply add this require statement to your spec_helper:
 require 'spree_printful/factories'
 ```
 
+## Setup
 
-## Contributing
+Once you have a Printful account and a printful api-key, you can go to the Printful Settings admin configuration screen to set the api key.
 
-If you'd like to contribute, please take a look at the
-[instructions](CONTRIBUTING.md) for installing dependencies and crafting a good
-pull request.
+If you want your orders to be sent directly to printful, add a printful_variant_id and a printfile image to all your products variants
 
-Copyright (c) 2016 [name of extension creator], released under the New BSD License
+**NOTE:** When working with printfiles, make sure that images are not hosted on `localhost`. Also check that the an absolute url is returned for the printfiles
+
+### TODO
+
+- [ ] Integrate with Printful Webhooks to update stocks, shipping, etc
+- [ ] Orders are currently submitted as draft, add setting to skip draft
+- [ ] Add option for multiple printfiles
+- [ ] Currently supports products with multiple variants. Fix this to support products with no variants
+- [ ] Add hadling fee to Shipping calculator
+
+## Contribution
+
+Pull requests are welcome, along with any feedback or ideas.
+
+## License
+
+MIT
