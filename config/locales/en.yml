@@ -6,3 +6,24 @@ en:
     printful_settings: "Printful Settings"
     printful_variant_id: "Printful Variant ID"
     printful_printfile_attachment: "Printful Printfile Attachment"
+    invalid_printful_variant: "Invalid printful variant"
+  spree_printful:
+    usps:
+      first_class_mail: "USPS First Class Mail [Printful]"
+      parcel_select: "USPS Parcel Select [Printful]"
+      priority_mail_international: "USPS Priority Mail International [Printful]"
+      first_class_package_international_service: "USPS First-Class Package International Service [Printful]"
+      priority_mail: "USPS Priority Mail [Printful]"
+    fedex:
+      standard_overnight: "FedEx Standard Overnight [Printful]"
+      ground: "FedEx Ground [Printful]"
+      international_economy: "FedEx International Economy [Printful]"
+      international_priority: "FedEx International Priority [Printful]"
+      two_day: "FedEx 2 Day [Printful]"
+      express_saver: "FedEx Express Saver [Printful]"
+      smart_post: "FedEx Smart Post [Printful]"
+    apc:
+      parcel_confirm: "International Economy With Tracking [Printful]"
+      parcel_connect: "International Economy Without Tracking [Printful]"
+    printful_shipping:
+      standard: "Flat Rate [Printful]"

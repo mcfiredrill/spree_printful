@@ -6,8 +6,8 @@
         <div class="form-group">
           <% @preferences_GeneralSettings.each do |key| %>
             <div class="field">
-              <%= label_tag key %>
-              <%= preference_field_tag(key, Spree::Config[key], type: :string) %>
+              <%= label_tag key.first %>
+              <%= preference_field_tag(key.first, Spree::Config[key.first], type: key.last) %>
             </div>
           <% end %>
         </div>
