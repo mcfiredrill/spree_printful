@@ -3,9 +3,9 @@ module Spree
     module PrintfulShipping
       class Standard < Base
         def self.description
-          I18n.t("printful_shipping.standard")
+          I18n.t("spree_printful.printful_shipping.standard")
         end
-        def self.printful_description
+        def printful_description
           "STANDARD"
         end
       end

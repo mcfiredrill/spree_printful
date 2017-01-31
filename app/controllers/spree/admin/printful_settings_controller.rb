@@ -1,7 +1,7 @@
 class Spree::Admin::PrintfulSettingsController < Spree::Admin::BaseController
 
   def edit
-    @preferences_GeneralSettings = [:printful_api_key, :printful_gift_subject, :printful_gift_message]
+    @preferences_GeneralSettings = [[:printful_api_key, :string], [:printful_gift_subject, :string], [:printful_gift_message, :text]]
   end
 
   def update

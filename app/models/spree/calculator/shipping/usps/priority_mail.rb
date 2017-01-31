@@ -3,9 +3,9 @@ module Spree
     module Usps
       class PriorityMail < Spree::Calculator::Shipping::PrintfulShipping::Base
         def self.description
-          I18n.t("usps.priority_mail")
+          I18n.t("spree_printful.usps.priority_mail")
         end
-        def self.printful_description
+        def printful_description
           "USPS_PRIORITYMAIL"
         end
       end

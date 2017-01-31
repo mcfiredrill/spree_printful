@@ -3,9 +3,9 @@ module Spree
     module Usps
       class FirstClassPackageInternationalService < Spree::Calculator::Shipping::PrintfulShipping::Base
         def self.description
-          I18n.t("usps.first_class_package_international_service")
+          I18n.t("spree_printful.usps.first_class_package_international_service")
         end
-        def self.printful_description
+        def printful_description
           "USPS_FIRSTCLASSPACKAGEINTERNATIONALSERVICE"
         end
       end

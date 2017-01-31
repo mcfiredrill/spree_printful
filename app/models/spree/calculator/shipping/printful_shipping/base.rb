@@ -13,9 +13,9 @@ module Spree
         def compute_package(package)
           order = package.order
           destination = order.ship_address
-          rates_result = retrieve_rates_from_cache(package, destination)
-          return nil if rates_result.empty?
-          return rates_result.detect {|rate| rate["id"] == self.class.printful_description }.to_f
+          rates_results = retrieve_rates_from_cache(package, destination)
+          return nil if rates_results.empty?
+          return rates_results.detect {|rate_result| rate_result["id"] == self.printful_description }.try(:[], "rate").try(:to_f)
         end
 
         private
@@ -38,7 +38,7 @@ module Spree
           def retrieve_rates destination, package_items
             pf = PrintfulClient.new(Spree::Config.printful_api_key)
             rates_result = pf.post('shipping/rates',{
-                recipient: build_location(order.ship_address),
+                recipient: build_location(destination),
                 items: package_items
             })
             return rates_result
@@ -50,7 +50,7 @@ module Spree
           def retrieve_rates_from_cache package, destination
             Rails.cache.fetch(cache_key(package)) do
               package_items = package_items_for_printful(package)
-              if shipment_packages.empty?
+              if package_items.empty?
                 []
               else
                 retrieve_rates(destination, package_items)

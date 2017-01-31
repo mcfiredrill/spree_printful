@@ -6,7 +6,7 @@ Spree::Order.class_eval do
   def send_order_to_printful
     shipping_state = self.ship_address.state ? self.ship_address.state.abbr : self.ship_address.state_name
     printful_line_items = get_printful_line_items
-    shipping_method = "STANDARD" || self.shipments.last.try(:shipping_method).try(:calculator).try(:printful_description)
+    shipping_method = self.shipments.last.try(:shipping_method).try(:calculator).try(:printful_description) || "STANDARD"
     if printful_line_items.present? and Spree::Config.printful_api_key.present?
       pf = PrintfulClient.new(Spree::Config.printful_api_key)
       pp pf.post('orders',
@@ -44,6 +44,8 @@ Spree::Order.class_eval do
       printful_line_items = []
       self.line_items.each do |item|
         if item.variant.is_printful_variant?
+          p "hello"
+          p item.variant.printful_printfile.attachment.url(:original)
           printful_files = [ { url: item.variant.printful_printfile.attachment.url(:original) }, { type: 'preview', url: item.variant.product.images.first.attachment.url(:original) } ]
           line_item = {
             external_id: item.id,
