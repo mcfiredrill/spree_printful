@@ -3,14 +3,27 @@
     <div class="col-md-6">
       <fieldset>
         <legend><%= Spree.t(:general) %></legend>
-        <div class="form-group">
-          <% @preferences_GeneralSettings.each do |key| %>
+        <% @preferences_GeneralSettings.each do |key| %>
+          <div class="form-group">
             <div class="field">
               <%= label_tag key.first %>
               <%= preference_field_tag(key.first, Spree::Config[key.first], type: key.last) %>
             </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
+      </fieldset>
+    </div>
+    <div class="col-md-6">
+      <fieldset>
+        <legend><%= t('spree_printful.printful_webhook') %></legend>
+        <% @preferences_WebhookSettings.each do |key| %>
+          <div class="form-group">
+            <div class="field">
+              <%= label_tag key.first %>
+              <%= preference_field_tag(key.first, Spree::Config[key.first], type: key.last) %>
+            </div>
+          </div>
+        <% end %>
       </fieldset>
     </div>
   </div>

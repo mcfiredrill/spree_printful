@@ -3,11 +3,13 @@
 
 en:
   spree:
+    error_occured: 'An error occured'
     printful_settings: "Printful Settings"
     printful_variant_id: "Printful Variant ID"
     printful_printfile_attachment: "Printful Printfile Attachment"
     invalid_printful_variant: "Invalid printful variant"
   spree_printful:
+    printful_webhook: 'Printful Webhook'
     usps:
       first_class_mail: "USPS First Class Mail [Printful]"
       parcel_select: "USPS Parcel Select [Printful]"
