@@ -1,7 +1,7 @@
 ## Installation
 
 1. Add this extension to your Gemfile with this line:
-  
+
   ```ruby
   gem 'spree_printful', github: 'lemuelbarango/spree_printful'
   ```
@@ -19,6 +19,18 @@
 4. Restart your server
 
   If your server was running, restart it so that it can find the assets properly.
+
+
+
+## Heroku installation
+
+Additional to migrations the gem adds a cron task (via the [Whenever gem](https://github.com/javan/whenever)) which is needed for updating product stocks. To run on Heroku you have to add a task to [Heroku Scheduler](https://devcenter.heroku.com/articles/scheduler):
+
+```
+rake spree_braintree_vzero:update_states
+```
+
+Recommended frequency is every hour.
 
 ## Testing
 
@@ -46,7 +58,8 @@ If you want your orders to be sent directly to printful, add a printful_variant_
 
 ### TODO
 
-- [ ] Integrate with Printful Webhooks to update stocks, shipping, etc
+- [x] Sync product stocks with printful
+- [ ] Integrate with Printful Webhooks to shipping, etc
 - [ ] Orders are currently submitted as draft, add setting to skip draft
 - [ ] Add option for multiple printfiles
 - [ ] Currently supports products with multiple variants. Fix this to support products with no variants

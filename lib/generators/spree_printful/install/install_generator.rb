@@ -18,6 +18,15 @@ module SpreePrintful
         run 'bundle exec rake railties:install:migrations FROM=spree_printful'
       end
 
+      def add_schedule
+        create_file 'config/schedule.rb' unless File.exist?('config/schedule.rb')
+        append_file 'config/schedule.rb' do
+          "\nevery :hour do
+            rake 'spree_printful:update_stock'
+          end"
+        end
+      end
+
       def run_migrations
         run_migrations = options[:auto_run_migrations] || ['', 'y', 'Y'].include?(ask 'Would you like to run the migrations now? [Y/n]')
         if run_migrations

@@ -11,6 +11,21 @@ Spree::Variant.class_eval do
     self.printful_printfile.attachment? and self.printful_variant_id.present?
   end
 
+  def self.update_stock
+    braintree = Gateway::BraintreeVzeroBase.first.provider
+    result = { changed: 0, unchanged: 0 }
+    not_in_state(FINAL_STATES).find_each do |checkout|
+      checkout.state = braintree::Transaction.find(checkout.transaction_id).status
+      if checkout.state_changed?
+        result[:changed] += 1
+        checkout.save
+      else
+        result[:unchanged] += 1
+      end
+    end
+    result
+  end
+
   private
     def printful_has_variant
       if self.printful_variant_id
