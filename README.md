@@ -54,7 +54,7 @@ Once you have a Printful account and a printful api-key, you can go to the Print
 
 If you want your orders to be sent directly to printful, add a printful_variant_id and a printfile image to all your products variants
 
-**NOTE:** When working with printfiles, make sure that images are not hosted on `localhost`. Also check that the an absolute url is returned for the printfiles
+**NOTE:** When working with printfiles, make sure that images are not hosted on `localhost`. Also check that the absolute url is returned for the printfiles
 
 ### TODO
 
