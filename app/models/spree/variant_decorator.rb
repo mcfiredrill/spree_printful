@@ -9,7 +9,7 @@ Spree::Variant.class_eval do
   after_create :update_printful_stock
 
   def is_printful_variant?
-    self.printful_printfile.try(:attachment)? and self.printful_variant_id.present?
+    self.printful_printfile.try(:attachment?) and self.printful_variant_id.present?
   end
 
   def get_printful_variant_details
